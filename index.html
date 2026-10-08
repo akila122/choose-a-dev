@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Choose a Dev</title>
+  <meta name="description" content="Catch the good stuff, dodge the bugs, fill it up.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ctext y=%22.9em%22 font-size=%2290%22%3E%F0%9F%8C%AD%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main id="frame">
+    <section id="choose" class="screen">
+      <h1>CHOOSE A DEV!</h1>
+      <div id="cards"></div>
+      <p class="tagline">DEPLOY ME!!!</p>
+    </section>
+
+    <section id="play" class="screen hidden">
+      <canvas id="game" width="600" height="400"></canvas>
+      <aside class="panel"><img id="stage" alt=""></aside>
+    </section>
+
+    <section id="end" class="screen hidden">
+      <div class="end-text">
+        <h1 id="end-title"></h1>
+        <p id="end-text"></p>
+        <button id="again" type="button">Choose again</button>
+      </div>
+      <aside class="panel"><img id="end-img" alt=""></aside>
+    </section>
+  </main>
+  <p class="rotate">Okreni telefon 📱↻</p>
+  <p class="hint">
+    <button id="mute" class="mute" type="button" aria-label="Toggle sound"></button>
+    <button id="quit" class="mute" type="button" aria-label="Quit game" title="Quit (Esc)">✕</button>
+    <span class="hint-text">Move with mouse, finger or ← →. Catch the good stuff, dodge the bugs. M = mute, Esc = quit.</span>
+  </p>
+  <script src="sound.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>
