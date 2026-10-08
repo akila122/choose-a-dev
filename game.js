@@ -502,3 +502,9 @@ addEventListener("keydown", (e) => {
 renderMute();
 
 buildCards();
+
+const startOverlay = document.getElementById("start-overlay");
+startOverlay.addEventListener("click", () => startOverlay.classList.add("hidden"));
+Sound.tryAutoplay().then((playing) => {
+  if (!playing) startOverlay.classList.remove("hidden");
+});

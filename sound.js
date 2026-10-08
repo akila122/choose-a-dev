@@ -93,6 +93,12 @@ const Sound = (() => {
   }
 
   return {
+    tryAutoplay() {
+      return song.play().then(
+        () => true,
+        () => false,
+      );
+    },
     good() {
       arpeggio([88, 95], 0.06, { vol: 0.5 });
     },

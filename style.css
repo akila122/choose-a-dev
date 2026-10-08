@@ -43,6 +43,19 @@ button { touch-action: manipulation; }
   gap: 2%;
 }
 
+.start-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  border: none;
+  background: rgba(6, 51, 26, 0.85);
+  color: var(--beige);
+  font: bold clamp(18px, 5vw, 48px) Georgia, serif;
+  letter-spacing: 0.04em;
+  text-shadow: 2px 2px 0 #000;
+  cursor: pointer;
+}
+
 .hidden { display: none; }
 
 #choose {
