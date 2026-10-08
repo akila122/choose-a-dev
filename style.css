@@ -48,7 +48,7 @@ button { touch-action: manipulation; }
   inset: 0;
   z-index: 10;
   border: none;
-  background: rgba(6, 51, 26, 0.85);
+  background: var(--green);
   color: var(--beige);
   font: bold clamp(18px, 5vw, 48px) Georgia, serif;
   letter-spacing: 0.04em;
