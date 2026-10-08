@@ -364,16 +364,24 @@ function drawDrone(x, y, t) {
   ctx.restore();
 }
 
+// Emoji as images: phone browsers often can't draw color emoji fonts on canvas.
+const EMOJI = {};
+for (const glyph of ["🌭", "🔋", "💾", "🎫", "🗺️", "🛂", "🐛", "☕", "🎒"]) {
+  const img = new Image();
+  img.src = `img/emoji/${glyph.codePointAt(0).toString(16)}.png`;
+  EMOJI[glyph] = img;
+}
+
+function drawEmoji(glyph, x, y, size) {
+  const img = EMOJI[glyph];
+  if (img.complete && img.naturalWidth) ctx.drawImage(img, x - size / 2, y - size / 2, size, size);
+}
+
 function drawCatcher(t) {
   const { catcher } = state.char;
   if (catcher === "dachshund") drawDachshund(state.catcherX, CATCHER_Y, state.facing);
   else if (catcher === "drone") drawDrone(state.catcherX, CATCHER_Y, t);
-  else {
-    ctx.font = "64px serif";
-    ctx.textAlign = "center";
-    ctx.textBaseline = "middle";
-    ctx.fillText("🎒", state.catcherX, CATCHER_Y + 8);
-  }
+  else drawEmoji("🎒", state.catcherX, CATCHER_Y + 8, 64);
 }
 
 function drawItem(item) {
@@ -392,8 +400,7 @@ function drawItem(item) {
     ctx.fillStyle = "#fff";
     ctx.fillText(item.glyph, 0, 1);
   } else {
-    ctx.font = "34px serif";
-    ctx.fillText(item.glyph, 0, 0);
+    drawEmoji(item.glyph, 0, 0, 36);
   }
   ctx.restore();
 }
@@ -405,13 +412,9 @@ function drawHud() {
   ctx.textBaseline = "top";
   ctx.fillText(String(state.score), W - 16, 12);
 
-  ctx.font = "20px serif";
-  ctx.textAlign = "left";
-  ctx.textBaseline = "bottom";
-  ctx.globalAlpha = 1;
   for (let i = 0; i < LIVES; i++) {
     ctx.globalAlpha = i < state.lives ? 1 : 0.2;
-    ctx.fillText(state.char.goods[0], 12 + i * 26, H - 10);
+    drawEmoji(state.char.goods[0], 22 + i * 26, H - 20, 22);
   }
   ctx.globalAlpha = 1;
 }

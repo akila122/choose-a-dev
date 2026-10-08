@@ -25,3 +25,7 @@ Then open http://localhost:8000.
 ## Tuning
 
 Constants at the top of `game.js`: `STAGE_AT` (fill % per image, 100% wins), `LIVES`, `FILL_PER_CATCH`, `TRAP_PENALTY`.
+
+## Credits
+
+Emoji graphics: [Twemoji](https://github.com/jdecked/twemoji), © Twitter, Inc. and other contributors, licensed under [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/).
